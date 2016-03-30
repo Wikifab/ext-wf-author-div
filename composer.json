@@ -1,0 +1,6 @@
+{
+    "name": "wikifab/author-div",
+    "type": "mediawiki-extension",
+    "require": {
+    }
+}
