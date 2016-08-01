@@ -24,7 +24,7 @@ class WfAuthorDiv {
 
 
 	public static function addParser( $input, $type = 'top', $number = 4 ) {
-		
+
 		$title = $input->getTitle();
 
 		$page = WikiPage::factory( $title );
@@ -46,6 +46,9 @@ class WfAuthorDiv {
 		$data['creatorAvatar'] = $avatar->getAvatarURL();
 
 		$data['creator'] = $creator->getRealName();
+		if ( ! $data['creator']) {
+			$data['creator'] = $creator->getName();
+		}
 
 		$out = '<span class="tuto-details-author-box">';
 		$out .= '<a class="image" href="'.$data['creatorUrl'].'">'.$data['creatorAvatar'].'</a>';
