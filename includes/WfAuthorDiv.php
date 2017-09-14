@@ -36,6 +36,18 @@ class WfAuthorDiv {
 			// this occur when creating a new page
 			return array( '', 'noparse' => true, 'isHTML' => true );
 		}
+		// For translated pages : $creator must be changed to match the original Creator
+		// or it will ofen display "fussybot" or one of the translators
+		if (class_exists('TranslatablePage')) {
+			$sourcePageTranslatable = \TranslatablePage::isTranslationPage( $title );
+			//var_dump($page); echo "<br/>";
+			if ($sourcePageTranslatable) {
+				$sourcePage = WikiPage::factory( $sourcePageTranslatable->getTitle() );
+				// if this is a translated page, creator is got from the original one :
+				$creator = $sourcePage->getCreator();
+			}
+		}
+
 
 		$data = [];
 		$data['creatorId'] = $creator->getId();
