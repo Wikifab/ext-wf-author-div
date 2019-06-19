@@ -63,7 +63,7 @@ class WfAuthorDiv {
 		}
 
 		$out = '<span class="tuto-details-author-box">';
-		$out .= '<a class="image" href="'.$data['creatorUrl'].'">'.$data['creatorAvatar'].'</a>';
+		$out .= '<a class="avatar-image" href="'.$data['creatorUrl'].'">'.$data['creatorAvatar'].'</a>';
 		$out .= '<a class="name" href="'.$data['creatorUrl'].'">'.'<span class="tuto-details-author-name">' . $data['creator'] . '</span>'.'</a>';
 		$out .= '</span>';
 
